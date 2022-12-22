@@ -22,12 +22,10 @@ public struct APIResponse: Decodable {
     let longitude: Float
     let tileY: Int
     let tileX: Int
-    let series: String
     let serverTime: Int64
     let speed: Float
     let trainType: String
     let tzn: String
     let wagonClass: String
     let bapInstalled: Bool
-    let connectivity: Connectivity
-}
+    }
