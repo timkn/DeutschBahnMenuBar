@@ -17,12 +17,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         
-        apiCall()
+        
         
         
         if let button = statusItem.button {
-            button.image = NSImage(systemSymbolName: "1.circle", accessibilityDescription: "1")
+            button.image = NSImage(systemSymbolName: "s.circle", accessibilityDescription: "s")
         }
+        
+        Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { (t) in
+            self.apiCall()
+        }
+        
     }
     
     
@@ -40,7 +45,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 DispatchQueue.main.async {
                     self.statusItem.button?.title = String(response.speed)
                 }
-                print(response.speed)
             }
         }
 
