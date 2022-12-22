@@ -28,20 +28,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func apiCall() {
         
-        guard let url = URL(string: "https://iceportal.de/api1/rs/status") else{
-                return
+        guard let url = URL(string: "https://iceportal.de/api1/rs/status") else {
+            return
+        }
+
+
+        let task = URLSession.shared.dataTask(with: url){
+            data, response, error in
+            
+            if let data = data, let string = String(data: data, encoding: .utf8){
+                print(string)
             }
+        }
 
-
-            let task = URLSession.shared.dataTask(with: url){
-                data, response, error in
-                
-                if let data = data, let string = String(data: data, encoding: .utf8){
-                    print(string)
-                }
-            }
-
-            task.resume()
+        task.resume()
     }
 }
 
