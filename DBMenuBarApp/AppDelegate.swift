@@ -43,7 +43,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             if let data = data, let _ = String(data: data, encoding: .utf8){
                 let response: APIResponse  = try! JSONDecoder().decode(APIResponse.self, from: data)
                 DispatchQueue.main.async {
-                    self.statusBarItem.button?.title = String(Int(floor(response.speed)))
+                    self.statusBarItem.button?.title = "\(String(Int(floor(response.speed)))) km/h"
                 }
             }
         }
