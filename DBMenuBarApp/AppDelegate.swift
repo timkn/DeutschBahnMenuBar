@@ -37,7 +37,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             
             if let data = data, let string = String(data: data, encoding: .utf8){
                 let response: APIResponse  = try! JSONDecoder().decode(APIResponse.self, from: data)
-                
+                DispatchQueue.main.async {
+                    self.statusItem.button?.title = String(response.speed)
+                }
                 print(response.speed)
             }
         }
