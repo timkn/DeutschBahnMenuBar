@@ -21,7 +21,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         
         if let button = statusBarItem.button {
-            button.image = NSImage(systemSymbolName: "s.circle", accessibilityDescription: "s")
+            button.title = "Speed"
         }
         
         Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { (t) in
